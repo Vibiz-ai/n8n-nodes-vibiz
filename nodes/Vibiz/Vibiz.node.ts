@@ -445,7 +445,7 @@ export class Vibiz implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Vibiz',
 		name: 'vibiz',
-		icon: 'file:vibiz.svg',
+		icon: { light: 'file:vibiz.svg', dark: 'file:vibiz.dark.svg' },
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
@@ -567,7 +567,7 @@ export class Vibiz implements INodeType {
 					returnData.push({ json: { error: (error as Error).message }, pairedItem: { item: i } });
 					continue;
 				}
-				throw error;
+				throw new NodeOperationError(this.getNode(), error as Error, { itemIndex: i });
 			}
 		}
 

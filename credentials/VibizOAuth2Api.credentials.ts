@@ -1,4 +1,4 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, Icon, INodeProperties } from 'n8n-workflow';
 
 export class VibizOAuth2Api implements ICredentialType {
 	name = 'vibizOAuth2Api';
@@ -8,6 +8,11 @@ export class VibizOAuth2Api implements ICredentialType {
 	displayName = 'Vibiz OAuth2 API';
 
 	documentationUrl = 'https://www.vibiz.ai/docs/mcp';
+
+	icon: Icon = {
+		light: 'file:../nodes/Vibiz/vibiz.svg',
+		dark: 'file:../nodes/Vibiz/vibiz.dark.svg',
+	};
 
 	properties: INodeProperties[] = [
 		{
