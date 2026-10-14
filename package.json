@@ -1,0 +1,59 @@
+{
+  "name": "n8n-nodes-vibiz",
+  "version": "0.1.0",
+  "description": "n8n community node for Vibiz, the AI marketing team: brand kits, on-brand ad creatives and UGC videos, ad performance across Meta, Google, TikTok, LinkedIn, Pinterest and X, and social posts.",
+  "keywords": [
+    "n8n-community-node-package",
+    "vibiz",
+    "marketing",
+    "ads",
+    "ugc",
+    "social-media",
+    "meta-ads",
+    "google-ads",
+    "tiktok-ads"
+  ],
+  "license": "MIT",
+  "homepage": "https://www.vibiz.ai/docs/mcp",
+  "author": {
+    "name": "Vibiz",
+    "email": "lautaro@vibiz.ai"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vibiz-ai/n8n-nodes-vibiz.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').cpSync('nodes/Vibiz/vibiz.svg','dist/nodes/Vibiz/vibiz.svg')\"",
+    "dev": "tsc --watch",
+    "lint": "eslint nodes credentials package.json",
+    "lintfix": "eslint nodes credentials --fix"
+  },
+  "files": [
+    "dist",
+    "!dist/tsconfig.tsbuildinfo",
+    "!dist/**/*.map"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/VibizOAuth2Api.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Vibiz/Vibiz.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-n8n-nodes-base": "^1.16.7",
+    "jsonc-eslint-parser": "^2.4.2",
+    "n8n-workflow": "2.16.0",
+    "typescript": "5.6.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}

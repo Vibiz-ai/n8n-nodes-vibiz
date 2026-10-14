@@ -1,0 +1,23 @@
+{
+  "name": "Vibiz weekly marketing report",
+  "nodes": [
+    {
+      "parameters": { "rule": { "interval": [{ "field": "weeks", "triggerAtDay": [1], "triggerAtHour": 8 }] } },
+      "name": "Every Monday 8am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": { "resource": "report", "operation": "growth", "vibiz": "your-brand-slug", "range": "7d" },
+      "name": "Vibiz growth report",
+      "type": "n8n-nodes-vibiz.vibiz",
+      "typeVersion": 1,
+      "position": [240, 0],
+      "credentials": { "vibizOAuth2Api": { "id": "", "name": "Vibiz account" } }
+    }
+  ],
+  "connections": {
+    "Every Monday 8am": { "main": [[{ "node": "Vibiz growth report", "type": "main", "index": 0 }]] }
+  }
+}
